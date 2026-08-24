@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>The Great Maltese Word Hunt of 2023</title>
+<style>
+#grid {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  list-style: none;
+  width: 320px;
+  font-family: monospace;
+}
+li {
+	height: 20px;
+}
+</style>
+</head>
+<body>
+<p>It's a 2<sup>1337</sup>&times;2<sup>1337</sup> Word Hunt grid, but for speed reasons we can only show a 16&times;16 window at a time.</p>
+<p>Standard Boggle rules apply, i.e. you can change directions at any point, but may not repeat a letter.</p>
+<p>Use the arrow keys to move around the grid. The goal is to find the unique location of SBGLOVESLCG.</p>
+<ul id="grid" align="center"></ul>
+<script>
+let x = 0n, y = 0n;
+
+const get=(x,y,n=1337)=>n?dic[get(x>>1n,y>>1n,n-1)][(y&1n)<<1n|x&1n]:x|y?' ':'U';
+const draw=()=>{
+	let s = '';
+	for (let j = 0n; j < 16n; j++)
+		for (let i = 0n; i < 16n; i++)
+			s += `<li>${get(x+i,y+j)}</li>`
+	grid.innerHTML = s;
+};
+
+onkeydown = e => {
+	switch (e.keyCode) {
+		case 37: x--; break;
+		case 38: y--; break;
+		case 39: x++; break;
+		case 40: y++; break;
+		default: return;
+	}
+	draw();
+};
+
+dic={
+'A':'LMSG',
+'B':'WFTY',
+'C':'LGET',
+'D':'WZAF',
+'E':'QWIN',
+'F':'LJPC',
+'G':'GBYT',
+'H':'BFKA',
+'I':'LCSY',
+'J':'JPGJ',
+'K':'BGFZ',
+'L':'PDOZ',
+'M':'GWYV',
+'N':'DAOL',
+'O':'HISL',
+'P':'WZAR',
+'Q':'HZLR',
+'R':'MPMC',
+'S':'DZZV',
+'T':'OWSS',
+'U':'JXIN',
+'V':'QWEW',
+'W':'IVGE',
+'X':'IFUE',
+'Y':'TOZD',
+'Z':'BAKA',
+' ':'    '
+}
+
+draw();
+</script>
+</body>
+</html>
