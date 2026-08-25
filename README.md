@@ -2,6 +2,10 @@
 
 Here I've archived my puzzles and CTF challenges that aren't already published elsewhere.
 
+## 2013
+
+- [Diagnosus](2013/diagnosus/) — puzzle
+
 ## 2023
 
 - [The Great Maltese Word Hunt](2023/great-maltese-word-hunt/) — wordsearch
